@@ -1,0 +1,51 @@
+import java.util.ArrayList; // Importa la clase ArrayList
+import java.util.HashSet;   // Importa la clase HashSet
+import java.util.List;      // Importa la interfaz List
+import java.util.Set;       // Importa la interfaz Set
+
+public class Tempo { // Define la clase Tempo
+
+    public static void main(String[] args) { // Método principal
+        // Crea una lista de enteros utilizando ArrayList
+        List<Integer> myList = new ArrayList<>();
+
+        // Añade el número 1 a la lista cinco veces
+        myList.add(1);
+        myList.add(1);
+        myList.add(1);
+        myList.add(1);
+        myList.add(1);
+
+        // Llama al método removeDuplicates y muestra el resultado
+        show(removeDuplicates(myList));
+    }
+
+    // Método para eliminar duplicados de una lista
+    public static List<Integer> removeDuplicates(List<Integer> inputList) {
+        // Crea un conjunto para almacenar los elementos únicos
+        Set<Integer> newSet = new HashSet<>();
+        // Crea una lista para almacenar los elementos únicos
+        List<Integer> myList = new ArrayList<>();
+
+        // Añade cada elemento de la lista de entrada al conjunto
+        for (Integer integer : inputList) {
+            newSet.add(integer);
+        }
+
+        // Añade cada elemento del conjunto a la lista
+        for (Integer integer : newSet) {
+            myList.add(integer);
+        }
+
+        // Retorna la lista sin duplicados
+        return myList;
+    }
+
+    // Método para mostrar los elementos de una lista
+    public static void show(List<Integer> inputList) {
+        // Imprime cada elemento de la lista
+        for (Integer integer : inputList) {
+            System.out.println(integer);
+        }
+    }
+}
