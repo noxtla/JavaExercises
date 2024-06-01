@@ -1,0 +1,34 @@
+public class tempo {
+
+    public static void main(String[] args) {
+        // Imprime la cadena invertida llamando al método reverseString con "String" como argumento
+        System.out.println(reverseString("String"));
+    }
+    
+    // Escribe un método que reciba una cadena y devuelva la misma cadena pero invertida.
+    public static String reverseString(String input) {
+        // Convierte la cadena de entrada a un arreglo de caracteres
+        char[] charArray = input.toCharArray();
+        // Crea un nuevo arreglo de caracteres con el mismo tamaño que la cadena de entrada
+        char[] newCharArray = new char[charArray.length];
+
+        // Inicializa el índice para el nuevo arreglo
+        int j = 0;
+
+        // Recorre el arreglo original desde el final hasta el principio
+        for (int i = charArray.length - 1; i >= 0; i--) {
+            // Asigna los caracteres del arreglo original al nuevo arreglo en orden inverso
+            newCharArray[j] = charArray[i];
+            j++;
+        }
+
+        // Convierte el nuevo arreglo de caracteres invertido a una cadena
+        String newInput = new String(newCharArray);
+
+        // Imprime la cadena invertida
+        System.out.println(newInput);
+
+        // Devuelve la cadena invertida
+        return newInput;
+    }
+}
