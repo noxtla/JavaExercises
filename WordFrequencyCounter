@@ -1,0 +1,51 @@
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+public class tempo {
+
+    public static void main(String[] args) {
+        // Crear una lista de Strings para almacenar varias ocurrencias de palabras.
+        List<String> stringList = new ArrayList<>();
+
+        // Agregar palabras a la lista.
+        stringList.add("apple");
+        stringList.add("banana");
+        stringList.add("apple");
+        stringList.add("orange");
+        stringList.add("banana");
+        stringList.add("apple");
+
+        // Contar las ocurrencias de cada palabra usando el método countWordOccurrences.
+        Map<String, Integer> wordCount = countWordOccurrences(stringList);
+
+        // Iterar sobre el conjunto de entradas del mapa para imprimir cada palabra y su frecuencia.
+        for (Map.Entry<String,Integer> myMap : wordCount.entrySet()) {
+            System.out.println("Llave: " + myMap.getKey() + " Valor: " + myMap.getValue());
+        }
+    }
+
+    // Método para contar las ocurrencias de palabras en una lista.
+    public static Map<String, Integer> countWordOccurrences(List<String> wordsInput) {
+        // Inicializar un mapa donde las claves son palabras y los valores son las frecuencias de estas palabras.
+        Map<String, Integer> wordMap = new HashMap<>();
+
+        // Iterar sobre cada palabra en la lista proporcionada.
+        for (String string : wordsInput) {
+            // Verificar si la palabra ya existe en el mapa.
+            if (wordMap.containsKey(string)) {
+                // Si la palabra existe, incrementar su contador en el mapa.
+                // Este get simplemente está devolviendo el número actual de ocurrencias de la palabra,
+                // a ese número se le suma 1 para actualizar la frecuencia.
+                wordMap.put(string, wordMap.get(string) + 1);
+            } else {
+                // Si la palabra no está en el mapa, añadirla con un contador inicial de 1.
+                wordMap.put(string, 1);
+            }
+        }
+        // Devolver el mapa que contiene las palabras y sus frecuencias.
+        return wordMap;
+    }
+
+}
